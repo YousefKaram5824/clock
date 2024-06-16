@@ -1,0 +1,129 @@
+* {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0%;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: #2f363e;
+}
+
+#clock {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 80px;
+}
+
+#hr,
+#min,
+#sec {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    rotate: 90deg;
+}
+
+#hr::before,
+#min::before,
+#sec::before {
+    content: "";
+    position: absolute;
+    inset: -20px;
+    border-radius: 50%;
+    box-shadow: 25px 25px 75px rgba(0, 0, 0, 0.25),
+    10px 10px 70px rgba(0, 0, 0, 0.25),
+    inset 5px 5px 10px rgba(0, 0, 0, 0.5),
+    inset 5px 5px 20px rgba(255, 255, 255, 0.2),
+    inset -5px -5px 15px rgba(0, 0, 0, 0.75);
+}
+
+#hr h2,
+#min h2,
+#sec h2 {
+    color: var(--clr);
+    position: absolute;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    inset: 0;
+    flex-direction: column;
+    font-size: 4em;
+    font-weight: 500;
+    transform: rotate(-90deg);
+}
+
+#hr h2 span,
+#min h2 span,
+#sec h2 span {
+    position: absolute;
+    font-size: 0.25em;
+    font-weight: 500;
+    bottom: 50px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+#sec b {
+    position: absolute;
+    display: inline-flex;
+    transform: rotate(-90deg) translate(-30px, 90px);
+    color: white;
+}
+
+#sec .dot,
+#min .dot,
+#hr .dot {
+    position: absolute;
+    top: 50%;
+    width: 10px;
+    height: 3px;
+    background: var(--clr);
+    transform-origin: 100px;
+}
+
+#sec .active.dot, #min .active.dot, #hr .active.dot {
+    background: var(--clr);
+    box-shadow: 0 0 10px var(--clr),
+    0 0 20px var(--clr),
+    0 0 30px var(--clr);
+}
+
+#sec .active.dot ~ .dot, #min .active.dot ~ .dot, #hr .active.dot ~ .dot  {
+    background: #555;
+}
+
+#sec .dot:nth-child(5n + 5), #min .dot:nth-child(5n + 5) {
+    width: 20px;
+}
+
+#hr .dot {
+    width: 20px;
+    
+}
+
+#hr .dot::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 10px;
+    width: 4px;
+    height: 4x;
+    border-radius: 4px;
+    background: var(--clr);
+    box-shadow: 1.5px 9px var(--clr),4px 18px var(--clr),7px 27px var(--clr);
+}
+
+#hr .dot.active ~ .dot::before {
+    background: #555;
+    box-shadow: 1.5px 9px #555,
+    4px 18px #555,
+    7px 27px #555;
+}
